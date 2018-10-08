@@ -1,0 +1,22 @@
+{
+  "presets": [
+    "next/babel",
+    "@zeit/next-typescript/babel"
+  ],
+  "plugins": [
+    "emotion",
+    [
+      "module-resolver",
+      {
+        "root": [
+          "."
+        ],
+        "alias": {
+          "components": "./components",
+          "lib": "./lib",
+          "queries": "./queries"
+        }
+      }
+    ]
+  ]
+}

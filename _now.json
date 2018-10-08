@@ -1,0 +1,15 @@
+{
+  "type": "static",
+  "alias": [
+    "yikesify.com",
+    "www.yikesify.com"
+  ],
+  "static": {
+    "redirects": [
+      {
+        "source": "/lemgthify",
+        "destination": "/lemgth"
+      }
+    ]
+  }
+}

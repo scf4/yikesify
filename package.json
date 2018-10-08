@@ -1,0 +1,38 @@
+{
+  "name": "yikesify",
+  "version": "0.2.0",
+  "private": true,
+  "engines": {
+    "node": "^10.0.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest",
+    "static": "rm -rf out && next build && next export",
+    "deploy": "yarn static && cp _now.json out/now.json && cd out && now --public && now alias"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
+    "emotion": "^9.2.12",
+    "emotion-server": "^9.2.12",
+    "next": "^7.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-emotion": "^9.2.12",
+    "styled-map": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.3",
+    "@types/next": "^7.0.1",
+    "@types/react": "^16.4.16",
+    "@types/react-dom": "^16.0.8",
+    "babel-plugin-emotion": "^9.2.11",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "jest": "^23.6.0",
+    "ts-jest": "^23.10.4",
+    "typescript": "^3.1.1"
+  }
+}
