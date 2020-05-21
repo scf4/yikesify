@@ -8,11 +8,11 @@ Some might call it post-internet mixed media performance art
 
 **Yikesify**
 
-http://www.yikesify.com
+https://yikesify.com
 
 **Lemgthify**
 
-http://www.yikesify.com/lemgth
+https://yikesify.com/lemgth
 
 ## More information
 
