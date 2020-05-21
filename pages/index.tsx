@@ -1,65 +1,65 @@
-import * as React from 'react';
+import { useState, ChangeEvent } from 'react';
 import Head from 'next/head';
+import { createGlobalStyle } from 'styled-components';
 
 import TextBox from 'components/TextBox';
 import Heading from 'components/Heading';
 import SubHeading from 'components/SubHeading';
 
 import { yikesify, deyikesify } from 'lib/yikesify';
-import { injectGlobal } from 'emotion';
 
-class App extends React.Component {
-  state = {
-    normalText: '',
-    yikesText: ''
-  };
+const Yikesify = () => {
+  const [normalText, setNormalText] = useState('');
+  const [yikesText, setYikesText] = useState('');
 
-  handleNormalTextChange = e => {
-    const text = e.target.value.replace(/[^a-zA-Z ',.!?]/, '').toLowerCase();
-    this.setState({
-      normalText: text,
-      yikesText: yikesify(text)
-    });
-  };
-
-  handleYikesTextChange = e => {
+  const handleNormalTextChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
-    this.setState({
-      yikesText: text,
-      normalText: deyikesify(text)
-    });
+    const sanitizedText = text.replace(/[^a-zA-Z ',.!?]/, '').toLowerCase();
+
+    setNormalText(sanitizedText);
+    setYikesText(yikesify(text));
   };
 
-  render() {
-    injectGlobal`
-      html, body { background: rgb(255, 130, 14) }
-    `;
+  const handleYikesTextChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const text = e.target.value;
 
-    return (
-      <>
-        <Head>
-          <title>Yikesify</title>
-        </Head>
-        <Heading>Yikesify</Heading>
-        <div>
-          <SubHeading>Normal text</SubHeading>
-          <TextBox
-            placeholder="Write something..."
-            value={this.state.normalText}
-            onChange={this.handleNormalTextChange}
-          />
-        </div>
-        <div>
-          <SubHeading>Yikes!</SubHeading>
-          <TextBox
-            placeholder="Or paste yikes text..."
-            value={this.state.yikesText}
-            onChange={this.handleYikesTextChange}
-          />
-        </div>
-      </>
-    );
+    setNormalText(deyikesify(text));
+    setYikesText(text);
+  };
+
+  return <>
+    <Background />
+    
+    <Head>
+      <title>Yikesify</title>
+    </Head>
+
+    <Heading>Yikesify</Heading>
+
+    <div>
+      <SubHeading>Normal text</SubHeading>
+      <TextBox
+        placeholder="Write something..."
+        value={normalText}
+        onChange={handleNormalTextChange}
+      />
+    </div>
+
+    <div>
+      <SubHeading>Yikes!</SubHeading>
+      <TextBox
+        placeholder="Or paste yikes text..."
+        value={yikesText}
+        onChange={handleYikesTextChange}
+      />
+    </div>
+  </>;
+};
+
+const Background = createGlobalStyle`
+  html, body {
+    background: rgb(255, 130, 14);
   }
-}
+`;
 
-export default App;
+export default Yikesify;

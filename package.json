@@ -1,38 +1,35 @@
 {
   "name": "yikesify",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "^10.0.0"
+    "node": "^12.x"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "jest",
-    "static": "rm -rf out && next build && next export",
-    "deploy": "yarn static && cp _now.json out/now.json && cd out && now --public && now alias"
+    "test": "jest"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
-    "@zeit/next-typescript": "^1.1.1",
-    "emotion": "^9.2.12",
-    "emotion-server": "^9.2.12",
-    "next": "^7.0.1",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-emotion": "^9.2.12",
-    "styled-map": "^3.0.0"
+    "@types/styled-components": "^5.1.0",
+    "next": "^9.4.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-emotion": "^10.0.0",
+    "styled-components": "^5.1.0",
+    "styled-map": "^3.3.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.3",
-    "@types/next": "^7.0.1",
-    "@types/react": "^16.4.16",
-    "@types/react-dom": "^16.0.8",
-    "babel-plugin-emotion": "^9.2.11",
-    "babel-plugin-module-resolver": "^3.1.1",
-    "jest": "^23.6.0",
-    "ts-jest": "^23.10.4",
-    "typescript": "^3.1.1"
+    "@types/jest": "^25.2.3",
+    "@types/next": "^9.0.0",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "babel-plugin-emotion": "^10.0.33",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.3"
   }
 }

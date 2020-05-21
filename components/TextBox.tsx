@@ -1,4 +1,4 @@
-import styled from 'react-emotion';
+import styled from 'styled-components';
 import styledMap from 'styled-map';
 
 export default styled.textarea<{ lomg?: boolean }>`

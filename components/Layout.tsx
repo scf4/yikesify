@@ -1,6 +1,6 @@
-import styled from 'react-emotion';
+import styled from 'styled-components';
 
-export default styled.div`
+export const Layout = styled.div`
   padding: 1.5rem;
   display: flex;
   margin: 0 auto;
@@ -8,7 +8,7 @@ export default styled.div`
   align-items: center;
   flex-direction: column;
   margin-top: 2rem;
-  > * + * {
+  & > * + * {
     margin-top: 2rem;
   }
 `;

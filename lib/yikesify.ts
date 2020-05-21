@@ -1,20 +1,18 @@
 const YIKES = 'yikes';
 
-const alphabet = Array.from("abcdefghijklmnopqrstuvwxyz!?,.' ");
+const alphabet = Array.from('abcdefghijklmnopqrstuvwxyz!?,.\' ');
 
 export const binaryStringToYikesWord = (binaryString: string) =>
   Array.from(binaryString)
     // e.g. "10101" -> "YiKeS"
     // Split into array of 0 or 1 digits
     // If 0 return relevant lowercase letter, if 1 return uppercase
-    .map(
-      (num, index) => (num === '1' ? YIKES[index].toUpperCase() : YIKES[index])
-    )
+    .map((num, index) => (num === '1' ? YIKES[index].toUpperCase() : YIKES[index]))
     .join('');
 
 export const yikesify = (text: string) =>
   Array.from(text)
-    // Find the index of this letter in alphabet array
+    // Find the index of this character in alphabet array
     // and convert number to binary string
     // pad start of string with zeros for 5 chars
     .map(letter =>
@@ -27,15 +25,16 @@ export const yikesify = (text: string) =>
     // join all the yIkeS words with a space
     .join(' ');
 
-export const yikesWordToBinaryString = (word: string) =>
+export const yikesWordToBinaryString = (word: string) => {
   // e.g., "YiKeS" -> "10101"
   // Make sure the word is "yikes"
-  word.toLowerCase() === YIKES &&
+  if (word.toLowerCase() !== YIKES) return '';
   // Split into array of letters
-  Array.from(word)
+  return Array.from(word)
     // Convert to 0 for lowercase, 1 for uppercase
     .map(letter => (letter === letter.toUpperCase() ? 1 : 0))
     .join('');
+};
 
 export const deyikesify = (text: string) =>
   text
